@@ -48,6 +48,18 @@ app.post('/add', function (req, res) {
     });
 })
 
+app.delete('/delete/:id',function(req,res){
+    pg.connect(connect, function (err, client, done) {
+        if (err) {
+            return console.error('error', err);
+        }
+        client.query('DELETE FROM recipes WHERE id= $1',[req.params.id] ,function (err, result) {
 
+            done();
+            res.sendStatus(200);
+
+        });
+    });
+})
 
 app.listen(3000);
