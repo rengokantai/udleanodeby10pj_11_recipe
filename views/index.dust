@@ -1,0 +1,63 @@
+{>"layout"/}
+
+<button class="btn btn-block" data-toggle="modal" data-target="#form">add</button>
+{<body}
+{#recipes}
+<div class="well">
+<h4>{name} <button class="btn btn-default pull-right" data-toggle="collapse"
+href="#recipe-{id}" aria-expanded="false" aria-controls="recipe-{id}"><span class="fa-exclamation-triangle"></span></button></h4>
+
+<div class="collapse" id="recipe-{id}">
+{ingredients}
+{directions}
+</div>
+</div>
+<button class="btn btn-default">edit</button>
+<button class="btn btn-danger delete-rec" data-id="{id}">delete</button>
+{/recipes}
+
+
+
+
+
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="formLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form method="post" action="/add">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="formLabel">add recipe</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+                    <label for="recipe" class="control-label">Recipe:</label>
+                    <input type="text" class="form-control" id="recipe" name="recipe">
+                  </div>
+                  <div class="form-group">
+                    <label for="ing" class="control-label">Ing:</label>
+                    <textarea class="form-control" id="ing" name="ing"></textarea>
+                  </div>
+
+                     <div class="form-group">
+                                      <label for="dir" class="control-label">Directions:</label>
+                                      <textarea  class="form-control" id="dir" name="dir"></textarea>
+                                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="save" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{/body}

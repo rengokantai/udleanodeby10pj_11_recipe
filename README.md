@@ -18,3 +18,8 @@ install
 ```
 npm install body-parser consolidate dust dustjs-helpers dustjs-linkedin express pg --save
 ```
+if use non jade and ejs, use consolidate
+```
+app.engine('dust',cons.dust);
+app.set('view engine','dust');
+```
