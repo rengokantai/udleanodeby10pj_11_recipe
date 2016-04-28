@@ -12,7 +12,7 @@ href="#recipe-{id}" aria-expanded="false" aria-controls="recipe-{id}"><span clas
 {directions}
 </div>
 </div>
-<button class="btn btn-default">edit</button>
+<button class="btn btn-default edit-rec" data-toggle="modal" data-target="#editform" data-id="{id}" data-recipe="{name}" data-ing="{ingredients}" data-dir="{directions}">edit</button>
 <button class="btn btn-danger delete-rec" data-id="{id}">delete</button>
 {/recipes}
 
@@ -52,6 +52,46 @@ href="#recipe-{id}" aria-expanded="false" aria-controls="recipe-{id}"><span clas
   </div>
 </div>
 
+
+
+
+<div class="modal fade" id="editform" tabindex="-1" role="dialog" aria-labelledby="editformLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form method="post" action="/edit">
+
+
+
+    <input type="hidden" id="id-edit" name="id" />
+
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editformLabel">edit recipe</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+                    <label for="recipe-edit" class="control-label">Recipe:</label>
+                    <input type="text" class="form-control" id="recipe-edit" name="recipe">
+                  </div>
+                  <div class="form-group">
+                    <label for="ing-edit" class="control-label">Ing:</label>
+                    <textarea class="form-control" id="ing-edit" name="ing"></textarea>
+                  </div>
+
+                     <div class="form-group">
+                                      <label for="dir-edit" class="control-label">Directions:</label>
+                                      <textarea  class="form-control" id="dir-edit" name="dir"></textarea>
+                                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="save" />
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 

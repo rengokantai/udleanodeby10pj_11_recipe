@@ -62,4 +62,19 @@ app.delete('/delete/:id',function(req,res){
     });
 })
 
+app.post('/edit',function(req,res){
+    pg.connect(connect, function (err, client, done) {
+        if (err) {
+            return console.error('error', err);
+        }
+        client.query('UPDATE recipes SET name=$1,ingredients=$2,directions=$3 WHERE id =$4',[req.body.recipe,req.body.ing,req.body.dir,req.body.id] ,function (err, result) {
+
+            done();
+            res.redirect('/');
+
+        });
+    });
+})
+
+
 app.listen(3000);
